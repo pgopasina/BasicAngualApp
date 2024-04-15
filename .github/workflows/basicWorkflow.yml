@@ -26,7 +26,8 @@ jobs:
     - run: npm ci --force && npm install -g @angular/cli
     - run: ng version && ng build
     - run: ng serve --host=0.0.0.0 --disable-host-check
-    # - run: npm test
+    - run: curl http://localhost:4200 && curl ifconfig.me 
+    - run: npm test
       env:
         CI: true
  windows-build:
