@@ -23,8 +23,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci
-    - run: npm run build
+    - run: npm ci --force
+    - run: ng version && ng build
+    - run: ng serve --host=0.0.0.0 --disable-host-check
     # - run: npm test
       env:
         CI: true
