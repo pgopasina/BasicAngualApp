@@ -1,4 +1,7 @@
 name: Basic Angular App
+env: 
+  aws_access_key_id: ${{ secrets.aws_access_key_id }} 
+  aws_secret_access_key: ${{ secrets.aws_secret_access_key }} 
 
 on:
   push:
@@ -8,14 +11,12 @@ on:
 
 jobs:
  ubuntu-build:
-
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [18.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
+    
     steps:
     - uses: actions/checkout@v3
     - name: Use basicAngularApp ${{ matrix.node-version }}
@@ -26,10 +27,10 @@ jobs:
     #- run: export aws_access_key_id="AKIAXGIE5JP7G4ZCYQOR"
     #- run: export aws_secret_access_key="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" 
     - run: echo $aws_access_key_id $aws_secret_access_key
-    - run: npm ci --force && npm install -g @angular/cli
-    - run: ng version && ng build
-    - run: ls -la && aws s3 cp dist s3://dmass/external/ --recursive --region us-west-2
-    - run: npm test
+    #- run: npm ci --force && npm install -g @angular/cli
+    #- run: ng version && ng build
+    #- run: ls -la && aws s3 cp dist s3://dmass/external/ --recursive --region us-west-2
+    #- run: npm test
       env:
         CI: true
  windows-build:
