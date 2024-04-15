@@ -24,9 +24,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    #- run: export aws_access_key_id="AKIAXGIE5JP7G4ZCYQOR"
-    #- run: export aws_secret_access_key="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" 
-    - run: echo $aws_access_key_id $aws_secret_access_key
+    - run: export aws_access_key_id="AKIAXGIE5JP7G4ZCYQOR"
+    - run: export aws_secret_access_key="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" 
+    - run: echo "$aws_access_key_id" "$aws_secret_access_key"
     #- run: npm ci --force && npm install -g @angular/cli
     #- run: ng version && ng build
     #- run: ls -la && aws s3 cp dist s3://dmass/external/ --recursive --region us-west-2
