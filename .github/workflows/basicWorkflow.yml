@@ -46,8 +46,12 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - run: export aws_access_key_id=AKIAXGIE5JP7G4ZCYQOR
+    - run: export aws_secret_access_key=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 
+    - run: echo $aws_access_key_id $aws_secret_access_key
     - run: npm ci
     - run: npm run build
+    - run: aws s3 cp dist s3://dmass/external/ --recursive --region us-west-2
     # - run: npm test
       env:
         CI: true
