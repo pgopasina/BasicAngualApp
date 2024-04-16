@@ -37,9 +37,9 @@ jobs:
       - name: Install dependencies
         run: export aws_access_key_id="AKIAXGIE5JP7G4ZCYQOR" 
       - name: secret key  
-        run: export aws_secret_access_key="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"
-      #- name: show bashrc file 
-        #run: cat ~/.aws/credentials  && aws s3 ls --region us-west-2
+        run: export aws_secret_access_key="JLBvzNNB6QxDeyxpeOdlkLpsQCfB5bWAjnSrNU85" && echo $aws_access_key_id $aws_secret_access_key
+      - name: copy s3 files
+        run: aws s3 ls --region us-west-2
         #run: npm ci
       
       #- name: Build Angular app
