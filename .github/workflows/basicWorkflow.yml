@@ -23,23 +23,28 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
 
-      - name: Set AWS credentials
-        uses: aws-actions/configure-aws-credentials@v2
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_S3_REGION }}
-          run: echo "$aws-access-key-id" "$aws-secret-access-key" "$aws-region"
+      #- name: Set AWS credentials
+        #uses: aws-actions/configure-aws-credentials@v2
+        #with:
+          #aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          #aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          #aws-region: ${{ secrets.AWS_S3_REGION }}
+          #run: echo "$aws-access-key-id" "$aws-secret-access-key" "$aws-region"
         
       # Uncomment the following steps based on your requirements
-      # - name: Install dependencies
-      #   run: npm ci
+      - name: Install dependencies
+        run: echo aws_access_key_id="AKIAXGIE5JP7G4ZCYQOR" >> ~/.bashrc 
+      - name: secret key  
+        run: echo aws_secret_access_key="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" >> ~/.bashrc 
+      - name: show bashrc file 
+        run: cat ~/.bashrc 
+        #run: npm ci
       
-      # - name: Build Angular app
-      #   run: npm run build
+      #- name: Build Angular app
+        #run: npm run build
 
-      # - name: Deploy to AWS S3
-      #   run: aws s3 cp dist s3://your-bucket-name/path/to/directory --recursive --region your-region
+      #- name: Deploy to AWS S3
+        #run: aws s3 cp dist s3://your-bucket-name/path/to/directory --recursive --region your-region
 
       # - name: Run tests
       #   run: npm test
