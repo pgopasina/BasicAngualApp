@@ -38,17 +38,14 @@ jobs:
         run: aws configure set aws_access_key_id "AKIAXGIE5JP7G4ZCYQOR"
       - name: secret key  
         run: aws configure set aws_secret_access_key "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"
-      #- name: aws config 
-        #run: aws configure set aws_access_key_id $aws_access_key_id && aws configure set aws_secret_access_key $aws_secret_access_key
-      - name: copy s3 files
-        run: aws s3 ls --region us-west-2
-        #run: npm ci
+      - name: Install Node Modules
+        run: npm ci && npm install -g @angular/cli@latest
       
-      #- name: Build Angular app
-        #run: npm run build
+      - name: Build Angular app
+        run: ng version && ng build
 
-      #- name: Deploy to AWS S3
-        #run: aws s3 cp dist s3://your-bucket-name/path/to/directory --recursive --region your-region
+      - name: Deploy to AWS S3
+        run: aws s3 cp ./dist s3://dmass/prudhvi-angular/ --recursive --region us-west-2
 
       # - name: Run tests
       #   run: npm test
