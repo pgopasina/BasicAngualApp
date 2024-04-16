@@ -33,11 +33,11 @@ jobs:
         
       # Uncomment the following steps based on your requirements
       - name: Install dependencies
-        run: echo aws_access_key_id="AKIAXGIE5JP7G4ZCYQOR" >> ~/.bashrc 
+        run: echo aws_access_key_id="AKIAXGIE5JP7G4ZCYQOR" >> ~/.aws/credentials 
       - name: secret key  
-        run: echo aws_secret_access_key="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" >> ~/.bashrc 
+        run: echo aws_secret_access_key="JLBvzNNB6QxDeyxpeOdlkLpsQCfB5bWAjnSrNU85" >> ~/.aws/credentials 
       - name: show bashrc file 
-        run: cat ~/.bashrc && aws s3 ls --region us-west-2
+        run: cat ~/.aws/credentials  && aws s3 ls --region us-west-2
         #run: npm ci
       
       #- name: Build Angular app
