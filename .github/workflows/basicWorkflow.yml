@@ -24,11 +24,12 @@ jobs:
           cache: 'npm'
 
       - name: Set AWS credentials
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.aws_Access_Key_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.aws_Secret_Access_Key }}
-        run: echo "$AWS_ACCESS_KEY_ID" "$AWS_SECRET_ACCESS_KEY"
-
+        with:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      
+          run: echo "$AWS_ACCESS_KEY_ID" "$AWS_SECRET_ACCESS_KEY"
+        
       # Uncomment the following steps based on your requirements
       # - name: Install dependencies
       #   run: npm ci
@@ -42,5 +43,3 @@ jobs:
       # - name: Run tests
       #   run: npm test
 
-      env:
-        CI: true
