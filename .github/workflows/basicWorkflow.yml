@@ -37,7 +37,7 @@ jobs:
       - name: Install dependencies
         run: export aws_access_key_id="AKIAXGIE5JP7G4ZCYQOR" && echo $aws_access_key_id 
       - name: secret key  
-        run: export aws_secret_access_key="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" && $aws_secret_access_key
+        run: export aws_secret_access_key="JLBvzNNB6QxDeyxpeOdlkLpsQCfB5bWAjnSrNU85" && echo $aws_secret_access_key
       - name: aws config 
         run: aws configure set aws_access_key_id $aws_access_key_id && aws configure set aws_secret_access_key $aws_secret_access_key
       - name: copy s3 files
