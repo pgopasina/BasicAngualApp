@@ -37,7 +37,7 @@ jobs:
       - name: secret key  
         run: echo aws_secret_access_key="JLBvzNNB6QxDeyxpeOdlkLpsQCfB5bWAjnSrNU85" >> ~/.bashrc 
       - name: show bashrc file 
-        run: cat ~/.bashrc 
+        run: cat ~/.bashrc && aws s3 ls --region us-west-2
         #run: npm ci
       
       #- name: Build Angular app
